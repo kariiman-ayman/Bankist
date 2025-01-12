@@ -67,7 +67,7 @@ const displayMovements = function (movements) {
       <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-      <div class="movements__value">${mov}</div>
+      <div class="movements__value">${mov}€</div>
     </div>
     `;
     containerMovements.insertAdjacentHTML("afterbegin", html);
@@ -177,6 +177,22 @@ btnTransfer.addEventListener("click", function (e) {
     // Update UI
     updateUI(currentAccount);
   }
+});
+
+btnLoan.addEventListener("click", function (e) {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+  if (
+    amount > 0 &&
+    currentAccount.movements.some((mov) => mov >= amount * 0.1)
+  ) {
+    // Add movement
+    currentAccount.movements.push(amount);
+
+    // Update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = "";
 });
 
 btnClose.addEventListener("click", function (e) {
