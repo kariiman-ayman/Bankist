@@ -165,9 +165,9 @@ const calcDisplaySummary = function (acc) {
   labelSumInterest.textContent = formatCur(interest, acc.locale, acc.currency);
 };
 
-const createUsernames = function (accounts) {
-  accounts.forEach(function (account) {
-    account.username = account.owner
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
       .toLowerCase()
       .split(" ")
       .map((name) => name[0])
@@ -178,7 +178,7 @@ createUsernames(accounts);
 
 const updateUI = function (acc) {
   // Display movements
-  displayMovements(acc.movements);
+  displayMovements(acc);
 
   // Display balance
   calcDisplayBalance(acc);
