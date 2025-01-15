@@ -97,18 +97,38 @@ const formatedMovementDate = function (date, locale) {
   return new Intl.DateTimeFormat(locale).format(date);
 };
 
-const displayMovements = function (movements, sort = false) {
+const displayMovements = function (acc, sort = false) {
   // Empty the entire container
   containerMovements.innerHTML = "";
-  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
-  movs.forEach(function (mov, i) {
+
+  const combinedMovsDates = acc.movements.map((mov, i) => ({
+    movement: mov,
+    movementDate: acc.movementsDates.at(i),
+  }));
+  // console.log(combinedMovsDates);
+
+  if (sort) combinedMovsDates.sort((a, b) => a.movement - b.movement);
+
+  combinedMovsDates.forEach(function (obj, i) {
+    const { movement, movementDate } = obj;
     const type = mov > 0 ? "deposit" : "withdrawal";
+    const date = new Date(movementDate);
+    const displayDate = formatedMovementDate(date, acc.locale);
+
+    const formattedMov = formatCur(movement, acc.locale, acc.currency);
+
+    // const formattedMov = new Intl.NumberFormat(acc.locale, {
+    //   style: "currency",
+    //   currency: acc.currency,
+    // }).format(movement);
+
     const html = `
-    <div class="movements__row">
-      <div class="movements__type movements__type--${type}">${
+      <div class="movements__row">
+        <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-      <div class="movements__value">${mov.toFixed(2)}€</div>
+      <div class="movements__date">${displayDate}</div>
+      <div class="movements__value">${formattedMov}</div>
     </div>
     `;
     containerMovements.insertAdjacentHTML("afterbegin", html);
