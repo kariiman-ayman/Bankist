@@ -111,7 +111,7 @@ const displayMovements = function (acc, sort = false) {
 
   combinedMovsDates.forEach(function (obj, i) {
     const { movement, movementDate } = obj;
-    const type = mov > 0 ? "deposit" : "withdrawal";
+    const type = movement > 0 ? "deposit" : "withdrawal";
     const date = new Date(movementDate);
     const displayDate = formatedMovementDate(date, acc.locale);
 
