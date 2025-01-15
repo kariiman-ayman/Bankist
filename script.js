@@ -215,8 +215,15 @@ const startLogOutTimer = function () {
   return timer;
 };
 
-// Event Handlers
-let currentAccount;
+//////////////////Event Handlers/////////////////////
+
+let currentAccount, timer;
+
+// FAKE ALWAYS LOGGED IN
+// currentAccount = account1;
+// updateUI(currentAccount);
+// containerApp.style.opacity = 100;
+
 btnLogin.addEventListener("click", function (e) {
   // Prevent the form from submitting and reloading the page after clicking on the button
   e.preventDefault();
