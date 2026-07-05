@@ -2,7 +2,7 @@
 
 Welcome to the **Bankist App** repository! This project is a minimalist online banking interface designed to simulate core banking functionalities. The app provides a clean and intuitive user experience, allowing users to manage their accounts, view transactions, and perform basic banking operations.
 
-💸 [Live Demo: Bankist](https://bankist-kariman.netlify.app/)
+💸 [Live Demo: Bankist](https://bankist-kariman.vercel.app/)
 
 ---
 
@@ -87,7 +87,7 @@ To run this project on your local machine, follow these steps:
 
 Try out the app yourself! Click the button below to visit the live demo:
 
-[![Bankist App Demo](https://img.shields.io/badge/-Live%20Demo-blue?style=for-the-badge)](https://bankist-kariman.netlify.app/)
+[![Bankist App Demo](https://img.shields.io/badge/-Live%20Demo-blue?style=for-the-badge)](https://bankist-kariman.vercel.app/)
 
 ---
 
